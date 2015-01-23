@@ -16,13 +16,20 @@ class HomeController extends BaseController {
 	*/
 
 	public function getHome() {
-		$destaques = Noticia::where("destaque","=", "1")->orderBy("created_at", "desc")->get();
-		$noticias = Noticia::orderBy("created_at", "desc")->get();
-
+		$destaques = Noticia::where("destaque","=", "1")->orderBy("created_at", "desc")->take(4)->get();
+		$noticias = Noticia::orderBy("created_at", "desc")->take(7)->get();
+		$mundo = Noticia::where("genero","=", "mundo")->orderBy("created_at", "desc")->take(6)->get();
+		$sport = Noticia::where("genero","=", "esportes")->orderBy("created_at", "desc")->take(6)->get();
+		$tec = Noticia::where("genero","=", "tecnologia")->orderBy("created_at", "desc")->take(6)->get();
+		$entretenimento = Noticia::where("genero","=", "entretenimento")->orderBy("created_at", "desc")->take(6)->get();
 
 		return View::make('home')->with(array(
 			"destaques" => $destaques,
-			"noticias" => $noticias
+			"noticias" => $noticias,
+			"noticias_mundo" => $mundo,
+			"noticias_esporte" => $sport,
+			"noticias_tecnologia" => $tec,
+			"noticias_entretenimento" => $entretenimento
 		));
 	}
 

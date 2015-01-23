@@ -36,4 +36,7 @@ Route::group(array(
 	Route::post('perfil-usuario', "UsuarioController@postAlterar");
 
 	Route::get('admin-panel', "UsuarioController@getAdminPanel");
+
+	Route::get('criar-noticia', "NoticiaController@getCriar");
+	Route::post('criar-noticia', "NoticiaController@postCriar");
 });

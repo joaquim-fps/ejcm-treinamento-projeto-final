@@ -14,7 +14,7 @@
         <h3>O que deseja fazer?</h3>
 
         <ul>
-            <li><a href="#" class="btn btn-primary btn-block">Criar notíca</a></li>
+            <li><a href="{{URL::action("NoticiaController@getCriar")}}" class="btn btn-primary btn-block">Criar notíca</a></li>
             <li><a href="#" class="btn btn-warning btn-block">Editar notíca</a></li>
             <li><a href="#" class="btn btn-danger btn-block">Deletar notícia</a></li>
         </ul>
