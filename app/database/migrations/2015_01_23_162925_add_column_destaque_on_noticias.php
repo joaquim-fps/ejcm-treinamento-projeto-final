@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnsPrivilegiosOnUsuariosGeneroOnNoticias extends Migration {
+class AddColumnDestaqueOnNoticias extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,8 @@ class AddColumnsPrivilegiosOnUsuariosGeneroOnNoticias extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table("usuarios", function(Blueprint $table) {
-			$table->boolean("privilegios");
-		});
-
 		Schema::table("noticias", function(Blueprint $table) {
-			$table->string("genero");
+			$table->integer("destaque");
 		});
 	}
 
@@ -28,12 +24,8 @@ class AddColumnsPrivilegiosOnUsuariosGeneroOnNoticias extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table("usuarios", function(Blueprint $table) {
-			$table->dropColumn("privilegios");
-		});
-
 		Schema::table("noticias", function(Blueprint $table) {
-			$table->dropColumn("genero");
+			$table->dropColumn("destaque");
 		});
 	}
 

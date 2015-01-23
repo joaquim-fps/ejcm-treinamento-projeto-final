@@ -1,0 +1,20 @@
+.jumbotron h2, h3 {
+    text-align: center;
+}
+
+.jumbotron ul {
+    list-style: none;
+}
+
+.jumbotron ul li {
+    margin-bottom: 20px;
+}
+
+.jumbotron ul li:first-child {
+    margin-top: 50px;
+}
+
+.jumbotron ul li a {
+    padding: 20px;
+}
+

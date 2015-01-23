@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddColumnDestaqueOnNoticias' => $baseDir . '/app/database/migrations/2015_01_23_162925_add_column_destaque_on_noticias.php',
     'AddColumnsPrivilegiosOnUsuariosGeneroOnNoticias' => $baseDir . '/app/database/migrations/2015_01_23_000239_add_columns_privilegios_on_usuarios_genero_on_noticias.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',

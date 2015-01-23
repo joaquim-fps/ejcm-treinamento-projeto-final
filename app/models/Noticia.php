@@ -1,5 +1,10 @@
 <?php
+
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
+
 class Noticia extends Eloquent {
+    use SoftDeletingTrait;
+
     protected $table = "noticias";
 
     protected $softDelete = true;

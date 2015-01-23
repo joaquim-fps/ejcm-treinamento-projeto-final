@@ -29,7 +29,7 @@ class CreateTablesUsuariosNoticiasComentarios extends Migration {
 			$table->integer("usuario_id")->unsigned()->nullable();
 			$table->string("titulo");
 			$table->text("texto");
-			$table->string("foto-capa");
+			$table->string("foto_capa");
 
 			$table->timestamps();
 			$table->softDeletes();
@@ -58,9 +58,9 @@ class CreateTablesUsuariosNoticiasComentarios extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop("usuarios");
-		Schema::drop("noticias");
 		Schema::drop("comentarios");
+		Schema::drop("noticias");
+		Schema::drop("usuarios");
 	}
 
 }

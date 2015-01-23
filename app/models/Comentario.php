@@ -1,5 +1,10 @@
 <?php
+
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
+
 class Comentario extends Eloquent {
+    use SoftDeletingTrait;
+
     protected $table = "comentarios";
 
     protected $softDelete = true;

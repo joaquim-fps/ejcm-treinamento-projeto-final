@@ -15,9 +15,15 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
+	public function getHome() {
+		$destaques = Noticia::where("destaque","=", "1")->orderBy("created_at", "desc")->get();
+		$noticias = Noticia::orderBy("created_at", "desc")->get();
+
+
+		return View::make('home')->with(array(
+			"destaques" => $destaques,
+			"noticias" => $noticias
+		));
 	}
 
 }
