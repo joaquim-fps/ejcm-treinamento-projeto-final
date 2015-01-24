@@ -30,10 +30,10 @@
 
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="nav navbar-nav navbar-left">
-                            <li><a href="#">Mundo</a></li>
-                            <li><a href="#">Esportes</a></li>
-                            <li><a href="#">Tecnologia</a></li>
-                            <li><a href="#">Entretenimento</a></li>
+                            <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "mundo"))}}">Mundo</a></li>
+                            <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "esportes"))}}">Esportes</a></li>
+                            <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "tecnologia"))}}">Tecnologia</a></li>
+                            <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "entretenimento"))}}">Entretenimento</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             @if(is_null(Auth::user()))
@@ -78,6 +78,41 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         Usuário deletado com sucesso.
                     </div>
+            @elseif(Session::has('create_news_success'))
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    Notícia criada com sucesso.
+                </div>
+            @elseif(Session::has('update_news_success'))
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    Notícia alterada com sucesso.
+                </div>
+            @elseif(Session::has('delete_news_success'))
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    Notícia deletada com sucesso.
+                </div>
+            @elseif(Session::has('permission_error'))
+                <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    Sem permissão para realizar esta ação.
+                </div>
+            @elseif(Session::has('create_comentario_success'))
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    Comentário criado com sucesso.
+                </div>
+            @elseif(Session::has('update_comentario_success'))
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    Comentário alterado com sucesso.
+                </div>
+            @elseif(Session::has('delete_comentario_success'))
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    Comentário deletado com sucesso.
+                </div>
             @endif
 
             @yield("conteudo")
@@ -101,10 +136,10 @@
                     <div class="col-sm-6 col-sm-offset-2 noticias">
                         <h6>Notícias</h6>
                         <ul class="nav nav-pills nav-justified">
-                            <li><a href="#">Mundo</a></li>
-                            <li><a href="#">Esportes</a></li>
-                            <li><a href="#">Tecnologia</a></li>
-                            <li><a href="#">Entretenimento</a></li>
+                            <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "mundo"))}}">Mundo</a></li>
+                            <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "esportes"))}}">Esportes</a></li>
+                            <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "tecnologia"))}}">Tecnologia</a></li>
+                            <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "entretenimento"))}}">Entretenimento</a></li>
                         </ul>
                     </div><!-- /.noticias -->
                 </div><!-- /.row -->

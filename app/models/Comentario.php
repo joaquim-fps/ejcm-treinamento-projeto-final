@@ -15,7 +15,7 @@ class Comentario extends Eloquent {
         return $this->belongsTo("Usuario", "usuario_id", "id");
     }
 
-    public function comentarios(){
+    public function noticia(){
         return $this->belongsTo("Noticia", "noticia_id", "id");
     }
 }

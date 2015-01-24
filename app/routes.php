@@ -13,6 +13,10 @@
 
 Route::get('home', "HomeController@getHome");
 
+Route::get('listar-todas-noticias', "NoticiaController@getListar");
+Route::get('listar-noticias/{genero}', "NoticiaController@getListarGenero");
+Route::get('visualizar-noticias/{id}', "NoticiaController@getVisualizar");
+
 Route::group(array(
 	"before" => "guest"
 ), function() {
@@ -39,4 +43,15 @@ Route::group(array(
 
 	Route::get('criar-noticia', "NoticiaController@getCriar");
 	Route::post('criar-noticia', "NoticiaController@postCriar");
+
+	Route::get('editar-noticia', "NoticiaController@getEditar");
+	Route::post('editar-noticia', "NoticiaController@postEditar");
+
+	Route::get('deletar-noticia', "NoticiaController@getDeletar");
+
+	Route::post('criar-comentario', "ComentarioController@postCriar");
+
+	Route::post('editar-comentario', "ComentarioController@postEditar");
+
+	Route::get('deletar-comentario', "ComentarioController@getDeletar");
 });

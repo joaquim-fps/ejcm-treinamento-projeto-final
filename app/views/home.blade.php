@@ -56,10 +56,12 @@
             <ul>
                 @foreach($noticias as $noticia)
                    <li>
-                        <h4><a href="">{{$noticia->titulo}}</a></h4>
+                        <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
                    </li>
                 @endforeach
             </ul>
+
+            <a href="{{URL::action("NoticiaController@getListar")}}">Veja todas as notícias</a>
         </div>
     </div>
 
@@ -68,9 +70,11 @@
 
         @foreach($noticias_mundo as $noticia)
             <li>
-                <h4><a href="">{{$noticia->titulo}}</a></h4>
+                <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
             </li>
         @endforeach
+
+        <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "mundo"))}}">Veja todas as notícias do mundo</a>
     </div>
 
     <div id="esportes" class="row">
@@ -78,9 +82,10 @@
 
         @foreach($noticias_esporte as $noticia)
             <li>
-                <h4><a href="">{{$noticia->titulo}}</a></h4>
+                <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
             </li>
         @endforeach
+        <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "esportes"))}}">Veja todas as notícias de esportes</a>
     </div>
 
     <div id="tecnologia" class="row">
@@ -88,9 +93,11 @@
 
         @foreach($noticias_tecnologia as $noticia)
             <li>
-                <h4><a href="">{{$noticia->titulo}}</a></h4>
+                <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
             </li>
         @endforeach
+
+        <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "tecnologia"))}}">Veja todas as notícias de tecnologia</a>
     </div>
 
     <div id="entretenimento" class="row">
@@ -98,8 +105,10 @@
 
         @foreach($noticias_entretenimento as $noticia)
             <li>
-                <h4><a href="">{{$noticia->titulo}}</a></h4>
+                <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
             </li>
         @endforeach
+
+        <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "entretenimento"))}}">Veja todas as notícias de entretenimento</a>
     </div>
 @stop
