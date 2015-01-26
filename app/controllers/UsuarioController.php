@@ -125,11 +125,17 @@ class UsuarioController extends BaseController {
     }
 
     public function getAdminPanel(){
-        return View::make("admin.admin-panel")->with("admin", Auth::user());
+        if(Auth::user()->privilegios == 1)
+            return View::make("admin.admin-panel")->with("admin", Auth::user());
+        else
+            return Redirect::back()->with("permission_error", true);
     }
 
     public function getAdminCadastro(){
-        return View::make("admin.admin-cadastro");
+        if(is_null(Auth::user()))
+            return View::make("admin.admin-cadastro");
+        else
+            return Redirect::back();
     }
 
     public function postAdminCadastro(){

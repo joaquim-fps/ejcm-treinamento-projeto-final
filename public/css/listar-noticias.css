@@ -1,0 +1,19 @@
+h2 {
+    text-align: center;
+    text-transform: capitalize;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.row img{
+    max-height: 20%;
+    max-width: 20%;
+}
+
+.blocos{
+    max-width: 100%;
+    max-height: 100%;
+    border: 10px;
+    margin-bottom: 2px;
+}

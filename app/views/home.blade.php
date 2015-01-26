@@ -11,7 +11,7 @@
 @section("conteudo")
     <div class="row">
         <!-- carousel -->
-        <div id="carousel-noticias" class="carousel slide col-sm-8" data-ride="carousel">
+            <div id="carousel-noticias" class="carousel slide col-sm-8" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-noticias" data-slide-to="0" class="active"></li>
@@ -22,15 +22,8 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="{{asset("uploads/capa-noticias/" . $destaques[0]->foto_capa)}}" alt="noticia destaque">
-                    <div class="carousel-caption">
-                        <h5>{{$destaques[0]->titulo}}</h5>
-                    </div>
-                </div>
-
-                @for($i = 1; $i < count($destaques); $i++)
-                    <div class="item">
+                @for($i = 0; $i < count($destaques); $i++)
+                    <div class="item @if($i == 0) active @endif">
                         <img src="{{asset("uploads/capa-noticias/" . $destaques[$i]->foto_capa)}}" alt="noticia destaque">
                         <div class="carousel-caption">
                             <h4>{{$destaques[$i]->titulo}}</h4>
@@ -52,27 +45,45 @@
 
         <!-- ultimas noticias -->
         <div class="col-sm-3 col-sm-offset-1">
-            <h3>Últimas Notícias</h3>
+
+
             <ul>
-                @foreach($noticias as $noticia)
-                   <li>
-                        <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
-                   </li>
-                @endforeach
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Últimas Notícias</th>
+                    </tr>
+                    </thead>
+                    @foreach($noticias as $noticia)
+                    <tbody>
+
+
+                            <tr>
+                                <td> <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4></td>
+                            </tr>
+
+                        </tbody>
+                    @endforeach
+                    </table>
+
             </ul>
 
-            <a href="{{URL::action("NoticiaController@getListar")}}">Veja todas as notícias</a>
+            <button type="button" class="btn btn-default"><a href="{{URL::action("NoticiaController@getListar")}}">Veja todas as notícias</a></button>
+
         </div>
     </div>
 
     <div id="mundo" class="row">
         <h2>Mundo</h2>
 
-        @foreach($noticias_mundo as $noticia)
-            <li>
-                <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
-            </li>
-        @endforeach
+        <ul>
+            @foreach($noticias_mundo as $noticia)
+                <li>
+                    <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
+                </li>
+            @endforeach
+        </ul>
 
         <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "mundo"))}}">Veja todas as notícias do mundo</a>
     </div>
@@ -80,22 +91,34 @@
     <div id="esportes" class="row">
         <h2>Esportes</h2>
 
-        @foreach($noticias_esporte as $noticia)
-            <li>
-                <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
-            </li>
-        @endforeach
+        <ul>
+            <div class="row">
+                @foreach($noticias_esporte as $noticia)
+                    <div class="col-md-4">
+                        <div>
+                            <a href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">
+                                <img id="imagem" class="img_bottom" src="{{asset('uploads/capa-noticias/' . $noticia->foto_capa)}}" alt="noticia destaque">
+                            </a>
+                        </div>
+
+                    </div>
+                @endforeach
+            </div>
+        </ul>
+
         <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "esportes"))}}">Veja todas as notícias de esportes</a>
     </div>
 
     <div id="tecnologia" class="row">
         <h2>Tecnologia</h2>
 
-        @foreach($noticias_tecnologia as $noticia)
-            <li>
-                <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
-            </li>
-        @endforeach
+        <ul>
+            @foreach($noticias_tecnologia as $noticia)
+                <li>
+                    <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
+                </li>
+            @endforeach
+        </ul>
 
         <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "tecnologia"))}}">Veja todas as notícias de tecnologia</a>
     </div>
@@ -103,11 +126,13 @@
     <div id="entretenimento" class="row">
         <h2>Entretenimento</h2>
 
-        @foreach($noticias_entretenimento as $noticia)
-            <li>
-                <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
-            </li>
-        @endforeach
+        <ul>
+            @foreach($noticias_entretenimento as $noticia)
+                <li>
+                    <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
+                </li>
+            @endforeach
+        </ul>
 
         <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "entretenimento"))}}">Veja todas as notícias de entretenimento</a>
     </div>

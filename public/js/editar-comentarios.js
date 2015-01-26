@@ -1,21 +1,14 @@
 (function($) {
     "use strict";
 
-    var group = $(".input-texto");
-    var input = group.find("[type=text]");
+    var form = $(".comentario .editar-form");
+    form.hide();
 
-    group.hide();
-    input.val("");
+    $(".edit_button").on("click", function(e) {
+        var p = $(this).closest(".panel-footer").prev().find("p");
+        var formToggle = $(this).closest(".panel-footer").prev().find(".editar-form");
 
-    $(".editar-form").on("submit", function(e) {
-        if (!(group.find(".form-control").val())) {
-            e.preventDefault();
-
-            var p = $(this).prev();
-
-            p.hide();
-            group.show();
-            input.val(p.text());
-        }
+        p.toggle();
+        formToggle.toggle();
     });
 })(jQuery);
