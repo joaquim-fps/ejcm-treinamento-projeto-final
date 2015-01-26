@@ -10,7 +10,7 @@
 @stop
 
 @section("conteudo")
-    <h1>Não <span id="white">Q</span>uero <span id="orange">O</span>pinar <sub>notícias imparciais</sub> </h1>
+    <h1><a href="{{URL::action("HomeController@getHome")}}">Não <span id="white">Q</span>uero <span id="orange">O</span>pinar <sub>notícias imparciais</sub></a></h1>
 
     <div class="row">
         <!-- carousel -->
@@ -82,7 +82,7 @@
                         </div>
                     </div>
 
-                    <a class="btn btn-default" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
+                    <a class="btn btn-warning" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
                 </a>
             </div>
         @endforeach
@@ -105,7 +105,7 @@
                         </div>
                     </div>
 
-                    <a class="btn btn-warning" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
+                    <a class="btn btn-primary" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
                 </a>
             </div>
         @endforeach
@@ -128,7 +128,7 @@
                         </div>
                     </div>
 
-                    <a class="btn btn-info" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
+                    <a class="btn btn-warning" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
                 </a>
             </div>
         @endforeach
