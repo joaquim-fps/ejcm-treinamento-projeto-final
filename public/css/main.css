@@ -1,6 +1,7 @@
+
 /* navbar */
 header .navbar {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 header .navbar-brand {
@@ -13,6 +14,10 @@ header .navbar-inverse {
 
 header .navbar-right li:first-child {
     border-top: 2px solid rgba(47, 47, 47, 0.6);
+}
+
+.navbar-right li:first-child a {
+    padding-left: 15px;
 }
 
 /* logo */
@@ -45,7 +50,7 @@ footer .reporteres ul, footer .noticias ul {
 }
 
 footer .reporteres ul li a, footer .noticias ul li a {
-    margin-left: 5px;
+    /*margin-left: 5px;*/
 }
 
 footer .reporteres a, footer .noticias a {
@@ -74,8 +79,16 @@ footer .direitos {
 
 @media (min-width: 768px) {
     /* navbar */
+    header .navbar {
+        margin-bottom: 50px;
+    }
+
     header .navbar-right li:first-child {
         border-top: none;
+    }
+
+    .navbar-right li:first-child a {
+        padding-left: 0;
     }
 
     /* logo */

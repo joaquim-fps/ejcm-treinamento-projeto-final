@@ -9,27 +9,30 @@
 @stop
 
 @section("conteudo")
-    <h2>Notícias  {{$genero}} </h2>
+    <h2>Notícias  {{$genero}}</h2>
 
-    <div class="row">
-        @foreach($noticias as $noticia)
-               <div class="col-md-6 blocos">
-                    <div>
-                        <a href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">
-                            <img id="imagem" src="{{asset('uploads/capa-noticias/' . $noticia->foto_capa)}}" alt="noticia destaque">
-                        </a>
+    @foreach($noticias as $noticia)
+        <div class="row noticia">
+            <a  href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}" id="imagem">
+               <div class="col-md-12 blocos">
+                    <div class="col-xs-4 col-sm-3">
+                        <img id="imagem" src="{{asset('uploads/capa-noticias/' . $noticia->foto_capa)}}" alt="noticia destaque">
                     </div>
-                    <div>
-                    <a  href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}" id="imagem">
+
+                    <div class="col-xs-8 col-sm-9">
                         <h3>{{$noticia->titulo}}</h3>
-                    </a>
-                        <p>{{$noticia->texto}}</p>
+                        <p class="noticia-texto">{{$noticia->texto}}</p>
                     </div>
                </div>
-        @endforeach
-    </div>
+            </a>
+        </div>
+    @endforeach
 
     <div class="pagination">
         {{$noticias->links()}}
     </div>
+@stop
+
+@section("js")
+    {{HTML::script("js/text-trim.js")}}
 @stop

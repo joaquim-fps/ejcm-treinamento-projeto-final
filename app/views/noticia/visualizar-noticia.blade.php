@@ -17,6 +17,11 @@
             {{$noticia->texto}}
         </p>
 
+        <div class="pull-left admin-info col-xs-6 col-sm-5">
+            <img class="pull-left img-circle" src="{{asset(is_null($noticia->usuario) ? "img/blank-foto-usuario.jpg" : "uploads/foto-usuarios/" . $noticia->usuario->foto)}}" alt="foto reporter" />
+            <h6>By: {{{is_null($noticia->usuario) ? "Anônimo" : $noticia->usuario->nome}}} - {{{"Criado em " . $noticia->created_at->format('D G:i')}}}</h6>
+        </div>
+
         @if(!(is_null(Auth::user())) && Auth::user()->privilegios == 1)
             <div class="admin-inputs pull-right">
                 <form class="editar-form" action="{{URL::action("NoticiaController@getEditar")}}" method="GET">
@@ -56,11 +61,12 @@
                     </form>
                 </div>
                 <div class="panel-footer clearfix">
-                    <div class="pull-left">
-                        <h6 class="pull-left" style="font-style: italic">By: {{{empty($noticia->usuario_id) ? "Anônimo" : $noticia->usuario->email}}} - {{{ $noticia->created_at === $noticia->updated_at ? "Criado em " . $noticia->created_at->format('D G:i') : "Editado em " . $noticia->updated_at->format('D G:i')}}}</h6>
+                    <div class="pull-left col-xs-7">
+                        <img class="img-circle pull-left" src="{{asset(is_null($comentario->usuario) ? "img/blank-foto-usuario.jpg" : "uploads/foto-usuarios/" . $comentario->usuario->foto)}}" alt="foto usuario"/>
+                        <h6 style="font-style: italic">By: {{{is_null($comentario->usuario) ? "Anônimo" : $comentario->usuario->email}}} - {{{ $comentario->created_at === $comentario->updated_at ? "Criado em " . $comentario->created_at->format('D G:i') : "Editado em " . $comentario->updated_at->format('D G:i')}}}</h6>
                     </div>
 
-                    @if(!(is_null(Auth::user())) && $comentario->usuario->id == Auth::user()->id)
+                    @if(!(is_null(Auth::user())) && !(is_null($comentario->usuario)) && $comentario->usuario->id == Auth::user()->id)
                         <div class="pull-right">
                             <button type="button" class="btn btn-info edit_button"/>Editar</button>
 

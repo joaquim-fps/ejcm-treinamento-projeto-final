@@ -24,9 +24,11 @@
             <div class="carousel-inner" role="listbox">
                 @for($i = 0; $i < count($destaques); $i++)
                     <div class="item @if($i == 0) active @endif">
-                        <img src="{{asset("uploads/capa-noticias/" . $destaques[$i]->foto_capa)}}" alt="noticia destaque">
+                        <a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $destaques[$i]->id))}}">
+                            <img id="capa-foto" class="{{$destaques[$i]->genero}}" src="{{asset("uploads/capa-noticias/" . $destaques[$i]->foto_capa)}}" alt="noticia destaque">
+                        </a>
                         <div class="carousel-caption">
-                            <h4>{{$destaques[$i]->titulo}}</h4>
+                            <a class="carousel-link" href="{{URL::action("NoticiaController@getVisualizar", array("id" => $destaques[$i]->id))}}"><h4>{{$destaques[$i]->titulo}}</h4></a>
                         </div>
                     </div>
                 @endfor
@@ -44,96 +46,115 @@
         </div>
 
         <!-- ultimas noticias -->
-        <div class="col-sm-3 col-sm-offset-1">
-
-
+        <div class="col-sm-4 ultimas">
+            <h3>Últimas Notícias</h3>
             <ul>
-
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Últimas Notícias</th>
-                    </tr>
-                    </thead>
-                    @foreach($noticias as $noticia)
-                    <tbody>
-
-
-                            <tr>
-                                <td> <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4></td>
-                            </tr>
-
-                        </tbody>
-                    @endforeach
-                    </table>
-
+                @foreach($noticias as $noticia)
+                    <li>
+                        <a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">
+                            <h4>
+                                {{$noticia->titulo}}
+                            </h4>
+                        </a>
+                    </li>
+                @endforeach
             </ul>
-
-            <button type="button" class="btn btn-default"><a href="{{URL::action("NoticiaController@getListar")}}">Veja todas as notícias</a></button>
-
         </div>
     </div>
 
     <div id="mundo" class="row">
         <h2>Mundo</h2>
 
-        <ul>
-            @foreach($noticias_mundo as $noticia)
-                <li>
-                    <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
-                </li>
-            @endforeach
-        </ul>
+        @foreach($noticias_mundo as $noticia)
+            <div class="col-xs-12 col-sm-6 col-md-3 noticia">
+                <a href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}" id="imagem">
+                    <div class="blocos">
+                        <div>
+                            <img src="{{asset('uploads/capa-noticias/' . $noticia->foto_capa)}}" alt="noticia destaque">
+                        </div>
 
-        <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "mundo"))}}">Veja todas as notícias do mundo</a>
+                        <div>
+                            <h3 class="noticia-header">{{$noticia->titulo}}</h3>
+                            <p class="noticia-texto">{{$noticia->texto}}</p>
+                        </div>
+                    </div>
+
+                    <a class="btn btn-default" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
+                </a>
+            </div>
+        @endforeach
     </div>
 
     <div id="esportes" class="row">
         <h2>Esportes</h2>
 
-        <ul>
-            <div class="row">
-                @foreach($noticias_esporte as $noticia)
-                    <div class="col-md-4">
+        @foreach($noticias_esporte as $noticia)
+            <div class="col-xs-12 col-sm-6 col-md-3 noticia">
+                <a href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}" id="imagem">
+                    <div class="blocos">
                         <div>
-                            <a href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">
-                                <img id="imagem" class="img_bottom" src="{{asset('uploads/capa-noticias/' . $noticia->foto_capa)}}" alt="noticia destaque">
-                            </a>
+                            <img src="{{asset('uploads/capa-noticias/' . $noticia->foto_capa)}}" alt="noticia destaque">
                         </div>
 
+                        <div>
+                            <h3 class="noticia-header">{{$noticia->titulo}}</h3>
+                            <p class="noticia-texto">{{$noticia->texto}}</p>
+                        </div>
                     </div>
-                @endforeach
-            </div>
-        </ul>
 
-        <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "esportes"))}}">Veja todas as notícias de esportes</a>
+                    <a class="btn btn-warning" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
+                </a>
+            </div>
+        @endforeach
     </div>
 
     <div id="tecnologia" class="row">
         <h2>Tecnologia</h2>
 
-        <ul>
-            @foreach($noticias_tecnologia as $noticia)
-                <li>
-                    <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
-                </li>
-            @endforeach
-        </ul>
+        @foreach($noticias_tecnologia as $noticia)
+            <div class="col-xs-12 col-sm-6 col-md-3 noticia">
+                <a href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}" id="imagem">
+                    <div class="blocos">
+                        <div>
+                            <img src="{{asset('uploads/capa-noticias/' . $noticia->foto_capa)}}" alt="noticia destaque">
+                        </div>
 
-        <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "tecnologia"))}}">Veja todas as notícias de tecnologia</a>
+                        <div>
+                            <h3 class="noticia-header">{{$noticia->titulo}}</h3>
+                            <p class="noticia-texto">{{$noticia->texto}}</p>
+                        </div>
+                    </div>
+
+                    <a class="btn btn-info" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
+                </a>
+            </div>
+        @endforeach
     </div>
 
     <div id="entretenimento" class="row">
         <h2>Entretenimento</h2>
 
-        <ul>
-            @foreach($noticias_entretenimento as $noticia)
-                <li>
-                    <h4><a href="{{URL::action("NoticiaController@getVisualizar", array("id" => $noticia->id))}}">{{$noticia->titulo}}</a></h4>
-                </li>
-            @endforeach
-        </ul>
+        @foreach($noticias_entretenimento as $noticia)
+            <div class="col-xs-12 col-sm-6 col-md-3 noticia">
+                <a href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}" id="imagem">
+                    <div class="blocos">
+                        <div>
+                            <img src="{{asset('uploads/capa-noticias/' . $noticia->foto_capa)}}" alt="noticia destaque">
+                        </div>
 
-        <a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "entretenimento"))}}">Veja todas as notícias de entretenimento</a>
+                        <div>
+                            <h3 class="noticia-header">{{$noticia->titulo}}</h3>
+                            <p class="noticia-texto">{{$noticia->texto}}</p>
+                        </div>
+                    </div>
+
+                    <a class="btn btn-primary" href="{{URL::action('NoticiaController@getVisualizar', array('id' => $noticia->id))}}">Leia mais</a>
+                </a>
+            </div>
+        @endforeach
     </div>
+@stop
+
+@section("js")
+    {{HTML::script("js/text-trim.js")}}
 @stop

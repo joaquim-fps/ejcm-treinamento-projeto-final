@@ -6,9 +6,18 @@ h2 {
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+.noticia {
+    margin-bottom: 30px;
+}
+
+.noticia h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
 .row img{
-    max-height: 20%;
-    max-width: 20%;
+    width: 100%;
+    height: 140px;
 }
 
 .blocos{
@@ -16,4 +25,21 @@ h2 {
     max-height: 100%;
     border: 10px;
     margin-bottom: 2px;
+}
+
+.noticia-texto {
+    word-wrap: break-word;
+}
+
+.pagination {
+    margin: 0 auto 30px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: none;
 }

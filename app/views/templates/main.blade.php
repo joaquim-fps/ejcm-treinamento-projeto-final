@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>@yield("titulo") - Não Quero Opinar</title>
 
-        {{HTML::style("libraries/bootstrap/css/bootstrap.min.css")}}
+        {{HTML::style("libraries/bootstrap/css/bootstrap.css")}}
         {{HTML::style("css/main.css")}}
         @yield("css")
     </head>
@@ -133,7 +133,7 @@
                     </div><!-- /.reporteres -->
 
                     <!-- noticias -->
-                    <div class="col-sm-6 col-sm-offset-2 noticias">
+                    <div class="col-sm-7 col-sm-offset-1 noticias">
                         <h6>Notícias</h6>
                         <ul class="nav nav-pills nav-justified">
                             <li><a href="{{URL::action("NoticiaController@getListarGenero", array("genero" => "mundo"))}}">Mundo</a></li>

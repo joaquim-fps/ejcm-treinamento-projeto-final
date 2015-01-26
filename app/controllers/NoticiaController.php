@@ -115,7 +115,7 @@ class NoticiaController extends BaseController {
     }
 
     public function getListar() {
-        $noticias = Noticia::paginate(10);
+        $noticias = Noticia::orderBy("created_at", "desc")->paginate(10);
 
         return View::make("noticia.listar-noticias")->with(array(
             'noticias' => $noticias,
@@ -124,7 +124,7 @@ class NoticiaController extends BaseController {
     }
 
     public function getListarGenero($genero) {
-        $noticias = Noticia::where("genero", "=", $genero)->paginate(10);
+        $noticias = Noticia::where("genero", "=", $genero)->orderBy("created_at", "desc")->paginate(10);
 
         return View::make("noticia.listar-noticias")->with(array(
             'noticias' => $noticias,
