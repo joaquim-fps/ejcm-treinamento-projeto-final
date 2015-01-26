@@ -80,7 +80,7 @@ footer .direitos {
 @media (min-width: 768px) {
     /* navbar */
     header .navbar {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
     header .navbar-right li:first-child {

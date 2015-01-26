@@ -6,9 +6,12 @@
 
 @section("css")
     {{HTML::style("css/home.css")}}
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 @stop
 
 @section("conteudo")
+    <h1>Não <span id="white">Q</span>uero <span id="orange">O</span>pinar <sub>notícias imparciais</sub> </h1>
+
     <div class="row">
         <!-- carousel -->
             <div id="carousel-noticias" class="carousel slide col-sm-8" data-ride="carousel">

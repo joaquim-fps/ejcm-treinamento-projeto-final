@@ -1,5 +1,27 @@
-h2, h3 {
+h1, h2, h3 {
     text-align: center;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 55px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+h1 sub {
+    font-size: 18px;
+    position:absolute;
+    right: 50%;
+    bottom: -10px;
+}
+
+#white {
+    color: #337ab7;
+}
+
+#orange {
+    color: #f0ad4e;
 }
 
 h2 {
