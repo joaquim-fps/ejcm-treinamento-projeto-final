@@ -1,3 +1,5 @@
+/* titulo */
+
 h2 {
     text-align: center;
     text-transform: capitalize;
@@ -5,6 +7,8 @@ h2 {
     margin-bottom: 40px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
+
+/* noticia */
 
 .noticia {
     margin-bottom: 30px;
@@ -31,9 +35,13 @@ h2 {
     word-wrap: break-word;
 }
 
+/* pagination */
+
 .pagination {
     margin: 0 auto 30px;
 }
+
+/* links */
 
 a {
     color: black;

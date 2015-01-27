@@ -1,3 +1,11 @@
+/* fix */
+
+* {
+    word-wrap: break-word;
+}
+
+/* titulo */
+
 h2 {
     text-align: center;
     padding-bottom: 30px;
@@ -7,9 +15,38 @@ h2 {
     margin-bottom: 40px;
 }
 
-* {
-    word-wrap: break-word;
+h3 {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+    margin-bottom: 40px;
 }
+
+/* posts info */
+
+h6 {
+    font-size:10px;
+}
+
+.admin-info {
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.admin-info h6 {
+    margin-top: 10px;
+}
+
+.img-circle {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.panel-footer div.col-xs-7 {
+    padding-left: 0;
+}
+
+/* noticia */
 
 .texto-noticia {
     margin-bottom: 40px;
@@ -23,40 +60,20 @@ h2 {
     text-indent: 15px;
 }
 
+/* inputs escondidos */
+
 .editar-form, .deletar-form {
     display: inline-block;
-
 }
+
+/* botoes de edicao */
 
 .admin-inputs {
     margin-top: 30px;
     margin-right: 15px;
 }
 
-.admin-info {
-    margin-top: 30px;
-    margin-left: 15px;
-}
-
-.admin-info h6 {
-    margin-top: 10px;
-}
-
- .img-circle {
-    height: 30px;
-    width: 30px;
-    margin-right: 10px;
-}
-
- .panel-footer div.col-xs-7 {
-     padding-left: 0;
- }
-
-h3 {
-    border-top: 1px solid rgba(0,0,0,0.1);
-    padding-top: 20px;
-    margin-bottom: 40px;
-}
+/* comentario */
 
 .comentario {
     margin-bottom: 60px;
@@ -75,9 +92,7 @@ h3 {
     margin-bottom: 60px;
 }
 
-h6 {
-    font-size:10px;
-}
+/* breakpoints */
 
 @media (min-width: 768px) {
     h6 {

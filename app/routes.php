@@ -17,6 +17,7 @@ Route::get('listar-todas-noticias', "NoticiaController@getListar");
 Route::get('listar-noticias/{genero}', "NoticiaController@getListarGenero");
 Route::get('visualizar-noticias/{id}', "NoticiaController@getVisualizar");
 
+//antes do login
 Route::group(array(
 	"before" => "guest"
 ), function() {
@@ -30,6 +31,7 @@ Route::group(array(
 	Route::post('admin-cadastro', "UsuarioController@postAdminCadastro");
 });
 
+//apos o login
 Route::group(array(
 	"before" => "auth"
 ), function() {

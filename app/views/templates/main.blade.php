@@ -52,6 +52,7 @@
             </nav>
         </header>
 
+        <!-- alerts de sucessos e erros -->
         <div class="container">
             @if(Session::has('login_success'))
                     <div class="alert alert-success alert-dismissible fade in" role="alert">

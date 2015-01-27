@@ -14,21 +14,28 @@
         <h3>O que deseja fazer?</h3>
 
         <ul>
+            <!-- botao criar noticia -->
             <li><a href="{{URL::action("NoticiaController@getCriar")}}" class="btn btn-primary btn-block">Criar notícia</a></li>
+
+            <!-- botao editar noticia -->
             <li>
                 <form class="form-inline" action="{{URL::action("NoticiaController@getEditar")}}" method="GET">
                     <input type="submit" class="btn btn-warning btn-block" value="Editar notícia">
 
+                    <!-- hidden -->
                     <div class="form-group col-sm-offset-3 col-md-offset-4 col-xs-12 col-sm-8">
                         <label class="control-label" for="id">ID da notícia:</label>
                         <input name="id" id="id" class="form-control" type="text" value="0"/>
                     </div>
                 </form>
             </li>
+
+            <!-- botao deletar noticia -->
             <li>
                 <form class="form-inline" action="{{URL::action("NoticiaController@getDeletar")}}" method="GET">
                     <input type="submit" class="btn btn-danger btn-block" value="Deletar notícia">
 
+                    <!-- hidden -->
                     <div class="form-group col-sm-offset-3 col-md-offset-4 col-xs-12 col-sm-8">
                         <label class="control-label" for="id">ID da notícia:</label>
                         <input name="id" id="id" class="form-control" type="text" value="0"/>

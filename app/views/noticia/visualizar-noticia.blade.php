@@ -11,17 +11,20 @@
 @section("conteudo")
     <h2 xmlns="http://www.w3.org/1999/html">{{$noticia->titulo}}</h2>
 
+    <!-- noticia -->
     <div class="texto-noticia row">
         <img class="col-xs-12 col-sm-offset-3 col-sm-6" src="{{asset("uploads/capa-noticias/$noticia->foto_capa")}}" alt="foto noticia"/>
         <p class="col-sm-12">
             {{$noticia->texto}}
         </p>
 
+        <!-- informações sobre a noticia -->
         <div class="pull-left admin-info col-xs-6 col-sm-5">
             <img class="pull-left img-circle" src="{{asset(is_null($noticia->usuario) ? "img/blank-foto-usuario.jpg" : "uploads/foto-usuarios/" . $noticia->usuario->foto)}}" alt="foto reporter" />
             <h6>By: {{{is_null($noticia->usuario) ? "Anônimo" : $noticia->usuario->nome}}} - {{{"Criado em " . $noticia->created_at->format('D G:i')}}}</h6>
         </div>
 
+        <!-- botoes disponiveis para os admins -->
         @if(!(is_null(Auth::user())) && Auth::user()->privilegios == 1)
             <div class="admin-inputs pull-right">
                 <form class="editar-form" action="{{URL::action("NoticiaController@getEditar")}}" method="GET">
@@ -37,6 +40,7 @@
         @endif
     </div>
 
+    <!-- comentarios -->
     @if(count($comentarios))
         <h3>Comentários</h3>
 
@@ -49,6 +53,7 @@
 
         @foreach($comentarios as $comentario)
             <div class="comentario panel panel-default">
+                <!-- comentario -->
                 <div class="panel-body">
                     <p>{{$comentario->texto}}</p>
                     <form class="editar-form" action="{{URL::action("ComentarioController@postEditar")}}" method="POST">
@@ -60,12 +65,15 @@
                         <input class="btn btn-success" type="submit" value="Alterar"/>
                     </form>
                 </div>
+
+                <!-- informaçoes sobre o comentario -->
                 <div class="panel-footer clearfix">
                     <div class="pull-left col-xs-7">
                         <img class="img-circle pull-left" src="{{asset(is_null($comentario->usuario) ? "img/blank-foto-usuario.jpg" : "uploads/foto-usuarios/" . $comentario->usuario->foto)}}" alt="foto usuario"/>
                         <h6 style="font-style: italic">By: {{{is_null($comentario->usuario) ? "Anônimo" : $comentario->usuario->email}}} - {{{ $comentario->created_at === $comentario->updated_at ? "Criado em " . $comentario->created_at->format('D G:i') : "Editado em " . $comentario->updated_at->format('D G:i')}}}</h6>
                     </div>
 
+                    <!-- botoes disponiveis para o autor do comentario -->
                     @if(!(is_null(Auth::user())) && !(is_null($comentario->usuario)) && $comentario->usuario->id == Auth::user()->id)
                         <div class="pull-right">
                             <button type="button" class="btn btn-info edit_button"/>Editar</button>
@@ -85,6 +93,7 @@
         </div>
     @endif
 
+    <!-- form criar comentario -->
     @if(!(is_null(Auth::user())))
         <div class="create-comentario clearfix">
             <h3>Criar comentário</h3>
@@ -110,6 +119,7 @@
             </form>
         </div>
     @else
+        <!-- prompt de login caso usuário não esteja logado -->
         <div class="login-prompt">
             <p>Faça login para comentar.</p>
             <a href="{{URL::action("UsuarioController@getLogin")}}" class="btn btn-primary">Login</a>

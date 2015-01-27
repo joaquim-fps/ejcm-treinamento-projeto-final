@@ -65,6 +65,7 @@
         </div>
     </div>
 
+    <!-- seção de noticias mundo -->
     <div id="mundo" class="row">
         <h2>Mundo</h2>
 
@@ -88,6 +89,7 @@
         @endforeach
     </div>
 
+    <!-- seção de noticias esporte -->
     <div id="esportes" class="row">
         <h2>Esportes</h2>
 
@@ -111,6 +113,7 @@
         @endforeach
     </div>
 
+    <!-- seção de noticias tecnologia -->
     <div id="tecnologia" class="row">
         <h2>Tecnologia</h2>
 
@@ -134,6 +137,7 @@
         @endforeach
     </div>
 
+    <!-- seção de noticias entretenimento -->
     <div id="entretenimento" class="row">
         <h2>Entretenimento</h2>
 
