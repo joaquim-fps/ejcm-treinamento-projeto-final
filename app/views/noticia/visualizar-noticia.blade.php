@@ -15,9 +15,7 @@
     <div class="texto-noticia row">
         <img class="col-xs-12 col-sm-offset-3 col-sm-6" src="{{asset("uploads/capa-noticias/$noticia->foto_capa")}}" alt="foto noticia"/>
         <p class="col-sm-12">
-            <pre>
             {{$noticia->texto}}
-            </pre>
         </p>
 
         <!-- informações sobre a noticia -->

@@ -3,10 +3,10 @@
     var ultimas = $(".ultimas h4");
     var titulos = $(".noticia-header")
 
-    //sets a limit depending on the page its being applied on
-    var limite = $(location).attr('href').indexOf("listar") > -1 ? 350 : 140;
+    //sets a limit to the length of the text
+    var limite = 140;
 
-    //trims the text if it bigger than a certain length
+    //trims the text if it bigger than the limit
     textos.each(function() {
         if ($(this).text().length > limite) {
             $(this).text($(this).text().substr(0,limite - 3)+"...");
