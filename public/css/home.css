@@ -150,13 +150,19 @@ a.carousel-link {
 /* breakpoints */
 
 @media (min-width: 400px) {
+    /* carousel */
+
     #capa-foto {
         height: 500px;
     }
 
+    /* logo */
+
     h1 sub {
         font-size: 18px;
     }
+
+    /* noticia */
 
     .noticia img {
         height: 200px;
